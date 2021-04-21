@@ -1,0 +1,26 @@
+
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">NAME</th>
+        <th scope="col">SURNAME</th>
+      </tr>
+    </thead>
+  <tbody>
+       <tr *ngFor="let student of students ">
+          <td>{{student.name}}</td>
+          <td>{{student.surname}}</td>
+
+
+          <button  type="submit"
+          class="btn btn-dark" name="action" value="back" style="margin-left: 10px; margin-bottom: 10px;">SHOW</button>
+
+
+
+           </tbody><br>
+        </table>
+
+        <button [routerLink]="[ '/subjectClass', classId ]" routerLinkActive="active" type="submit"
+            class="btn btn-warning" name="action" value="back" style="margin-left: 10px; margin-bottom: 10px;">SUBJECTS</button>
+

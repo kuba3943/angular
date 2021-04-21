@@ -1,0 +1,31 @@
+
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">NAME</th>
+
+      </tr>
+    </thead>
+  <tbody>
+       <tr *ngFor="let subject of subjects ">
+          <td>{{subject.name}}</td>
+
+          <a [routerLink]="[ '/showGrades', subject.id, classId ]" routerLinkActive="active">
+            <button type="submit" class="btn btn-warning" name="action" value="back" style="margin-bottom: 10px;">SHOW GRADES</button>
+          </a>
+
+
+
+
+            </tbody><br>
+        </table>
+
+
+        <a [routerLink]="[ '/addSubjectToClass', classId ]" routerLinkActive="active">
+          <button type="submit" class="btn btn-primary" name="action" value="back" style="margin-left: 10px;">ADD NEW SUBJECT TO CLASS</button>
+        </a>
+
+        <a [routerLink]="[ '/classes' ]" routerLinkActive="active">
+          <button type="submit" class="btn btn-secondary" name="action" value="back" style="margin-left: 10px;">BACK</button>
+        </a>

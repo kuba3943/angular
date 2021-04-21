@@ -1,0 +1,68 @@
+<h5>NAME: </h5>
+<p style="font-weight: bold;">{{student.name}}</p>
+<h5>SURNAME: </h5>
+<p style="font-weight: bold;">{{student.surname}}</p>
+<h5>DATE OF BIRTH: </h5>
+<p style="font-weight: bold;">{{student.dob}}</p>
+<h5>STATUS: </h5>
+<p style="font-weight: bold;">{{student.userRole}}</p>
+
+<button (click)="this.show()" type="submit" class="btn btn-warning" name="action" value="back"
+  style="margin-left: 10px; ">SHOW SUBJECTS</button>
+
+<button [routerLink]="[ '/student' ]" routerLinkActive="active" type="submit" class="btn btn-success" name="action"
+  value="back" style="margin-left: 10px;">BACK</button>
+
+<ng-container *ngIf="flag">
+  <table>
+
+    <tbody>
+      <tr *ngFor="let subject of subjects ">
+        {{subject.name}}
+
+        <button (click)="this.getGrades(student.id, subject.id); this.subjectID(subject.id); this.show2();"
+          type="submit" class="btn btn-warning" name="action" value="back" style="margin-left: 10px; ">SHOW
+          GRADES</button>
+
+        <ng-container *ngIf=" subject.id === id">
+          <table>
+
+            <tbody>
+              <tr *ngFor="let pointt of grades.points ">
+                <td>{{pointt.point}}</td>
+
+            </tbody>
+           Average: {{avgValue}}
+          </table>
+<div>
+          <form class="submit-form">
+            <label for="point">POINT</label>
+            <select [(ngModel)]="point" id="point" class="form-control" name="point">
+
+
+              <option value="null"></option>
+
+
+
+              <option *ngFor="let pointt of points2" [ngValue]="pointt">{{pointt.point}}</option>
+
+            </select>
+
+
+
+          </form>
+
+            <button (click)="addPoint(student.id, id, point.id); this.subjectID(subject.id*(-1)) "  [routerLink]="[ '/studentDetails', student.id ]" routerLinkActive="active"   type="submit" class="btn btn-warning"
+              name="action" value="back" style="margin-left: 10px; ">ADD</button>
+          </div>
+
+
+
+
+        </ng-container>
+
+
+
+    </tbody><br>
+  </table>
+</ng-container>

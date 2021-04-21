@@ -1,0 +1,23 @@
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">NAME</th>
+        <th scope="col">SURNAME</th>
+      </tr>
+    </thead>
+  <tbody>
+       <tr *ngFor="let student of students ">
+          <td>{{student.name}}</td>
+          <td>{{student.surname}}</td>
+           </tbody><br>
+        </table>
+
+        <a [routerLink]="[ '/addToClass', classId ]" routerLinkActive="active">
+          <button type="submit" class="btn btn-warning" name="action" value="back" style="margin-left: 10px;">ADD STUDENT TO CLASS</button>
+        </a>
+
+
+        <a [routerLink]="[ '/classes' ]" routerLinkActive="active">
+          <button type="submit" class="btn btn-warning" name="action" value="back" style="margin-left: 10px;">BACK</button>
+        </a>

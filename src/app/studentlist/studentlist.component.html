@@ -1,0 +1,34 @@
+
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">NAME</th>
+        <th scope="col">SURNAME</th>
+      </tr>
+    </thead>
+    <tbody>
+         <tr *ngFor="let student of students ">
+            <td>{{student.name}}</td>
+            <td>{{student.surname}}</td>
+
+
+
+
+              <button [routerLink]="[ '/studentDetails', student.id ]" routerLinkActive="active" type="submit"
+              class="btn btn-warning" name="action" value="back" style="margin-left: 10px; margin-bottom: 10px;">DETAILS</button>
+
+              <button (click)="deleteStudent(student)"  type="submit"
+              class="btn btn-danger" name="action" value="back" style="margin-left: 10px; margin-bottom: 10px;">DELETE</button>
+
+              <button [routerLink]="[ '/update', student.id ]" routerLinkActive="active" type="submit"
+              class="btn btn-light" name="action" value="back" style="margin-left: 10px; margin-bottom: 10px;">UPDATE</button>
+
+    </tbody><br>
+</table>
+
+<button [routerLink]="[ '/add']" routerLinkActive="active" type="submit"
+              class="btn btn-success" name="action" value="back" style="margin-left: 10px; margin-bottom: 10px;">ADD STUDENT</button>
+
+<button [routerLink]="[ '/menu' ]" routerLinkActive="active" type="submit"
+              class="btn btn-primary" name="action" value="back" style="margin-left: 10px; margin-bottom: 10px;">BACK</button>

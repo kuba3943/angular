@@ -1,0 +1,83 @@
+<div style="width: 400px; margin: auto;">
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+
+
+      <div class="form-group">
+        <label for="dob">DOB</label>
+        <input
+        type="date"
+          class="form-control"
+          id="DOB"
+          required
+          [(ngModel)]="student.dob"
+          name="DOB"
+        />
+      </div>
+
+
+      <div class="form-group">
+        <label for="username">USERNAME</label>
+        <input
+        type="text"
+          class="form-control"
+          id="username"
+          required
+          [(ngModel)]="student.username"
+          name="username"
+        />
+      </div>
+
+
+      <div class="form-group">
+        <label for="password">PASSWORD</label>
+        <input
+        type="password"
+          class="form-control"
+          id="password"
+          required
+          [(ngModel)]="student.password"
+          name="password"
+        />
+      </div>
+
+
+      <div class="form-group">
+        <label for="surname">SURNAME</label>
+        <input
+        type="text"
+          class="form-control"
+          id="surname"
+          required
+          [(ngModel)]="student.surname"
+          name="surname"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="name">NAME</label>
+        <input
+        type="text"
+          class="form-control"
+          id="name"
+          required
+          [(ngModel)]="student.name"
+          name="name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="userRole">STATUS</label>
+        <input
+        type="text"
+          class="form-control"
+          id="userRole"
+          required
+          [(ngModel)]="student.userRole"
+          name="userRole"
+        />
+      </div>
+
+
+      <button (click)="saveTutorial()" class="btn btn-success" [routerLink]="[ '/menu' ]" routerLinkActive="active">Submit</button>
+    </div>
