@@ -1,0 +1,24 @@
+
+        <div>
+          <form class="submit-form">
+            <label>DODAJ DO: {{class.name}}</label><br>
+            <label for="point">STUDENT</label>
+            <select [(ngModel)]="student" id="student" class="form-control" name="student">
+
+
+              <option value="null"></option>
+
+
+
+              <option *ngFor="let student of students" [ngValue]="student">{{student.name}} {{student.surname}}</option>
+
+            </select>
+
+
+
+          </form>
+
+            <button (click)="addToClass(classId, student.id)"  [routerLink]="[ '/classes']" routerLinkActive="active"   type="submit" class="btn btn-warning"
+              name="action" value="back" style="margin-left: 10px; ">ADD</button>
+          </div>
+
