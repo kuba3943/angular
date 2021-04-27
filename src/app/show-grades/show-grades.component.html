@@ -13,8 +13,70 @@
           <td>{{student.surname}}</td>
 
 
-          <button  type="submit"
-          class="btn btn-dark" name="action" value="back" style="margin-left: 10px; margin-bottom: 10px;">SHOW</button>
+          <button (click)="this.getGrades(student.id, this.subjectId);  this.studentID(student.id);" type="submit"
+          class="btn btn-dark" name="action" value="back" style="margin-left: 10px; margin-bottom: 10px;">SHOW/HIDE</button>
+
+
+          <table>
+
+            <tbody>
+
+
+                <!-- <button (click)="this.getGrades(student.id, subject.id); this.subjectID(subject.id); this.show2();"
+                  type="submit" class="btn btn-warning" name="action" value="back" style="margin-left: 10px; ">SHOW
+                  GRADES</button> -->
+
+                <ng-container *ngIf=" student.id === id">
+                  <table>
+
+                    <tbody>
+                      <tr *ngFor="let pointt of grades.points ">
+
+                        {{pointt.point}}
+
+
+
+                    </tbody>
+
+                   Average: {{avgValue}}
+                  </table>
+        <div>
+                  <form class="submit-form">
+                    <label for="point">POINT</label>
+                    <select [(ngModel)]="point" id="point" class="form-control" name="point">
+
+
+                      <option value="null"></option>
+
+
+
+                      <option *ngFor="let pointt of points2" [ngValue]="pointt">{{pointt.point}}</option>
+
+                    </select>
+
+
+
+                  </form>
+
+                    <button  (click)="addPoint(student.id, this.subjectId, point.id); this.studentID(student.id*(-5)) " [routerLink]="[ '/showGrades', subjectId, classId ]" routerLinkActive="active"    type="submit" class="btn btn-warning"
+                      name="action" value="back" style="margin-left: 10px; ">ADD</button>
+                  </div>
+
+
+
+
+                </ng-container>
+
+
+
+            </tbody><br>
+          </table>
+
+
+
+
+
+
 
 
 
