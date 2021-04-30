@@ -7,6 +7,8 @@ const baseURL = 'http://localhost:8080/api/student';
 
 const pointsURL = 'http://localhost:8080/api/points';
 
+const roleURL = 'http://localhost:8080/login/role'
+
 @Injectable({
   providedIn: 'root'
 })
@@ -59,5 +61,14 @@ export class StudentService {
   getStudentsWithNoClass(): Observable<any>{
     return this.http.get(`${baseURL}/noClass`);
   }
+
+  getRole(username:any): Observable<any>{
+    return this.http.get(`${roleURL}/${username}`, { responseType: 'text' });
+  }
+
+getStudentByUsername(username:any): Observable<any>{
+    return this.http.get(`${baseURL}/username/${username}`);
+  }
+
 
 }

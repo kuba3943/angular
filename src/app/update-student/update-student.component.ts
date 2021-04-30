@@ -1,7 +1,9 @@
+import { AppComponent } from './../app.component';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Student } from '../models/student';
 import { StudentService } from '../services/student.service';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-update-student',
@@ -10,14 +12,16 @@ import { StudentService } from '../services/student.service';
 })
 export class UpdateStudentComponent implements OnInit {
 
-  constructor(private studentService: StudentService, private route: ActivatedRoute) { }
+  constructor(private aC: AppComponent, private studentService: StudentService, private route: ActivatedRoute) { }
 
   student: Student = new Student;
 
 
+  username!:string;
 
   ngOnInit(): void {
     this.getstudent(this.route.snapshot.paramMap.get('id'));
+    this.username = this.aC.username;
   }
 
   getstudent(id: any) {

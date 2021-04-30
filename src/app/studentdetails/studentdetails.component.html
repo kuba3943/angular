@@ -10,8 +10,21 @@
 <button (click)="this.show()" type="submit" class="btn btn-warning" name="action" value="back"
   style="margin-left: 10px; ">SHOW SUBJECTS</button>
 
-<button [routerLink]="[ '/student' ]" routerLinkActive="active" type="submit" class="btn btn-success" name="action"
+  <ng-container *ngIf="role === 'TEACHER'">
+
+<button [routerLink]="[ '/student', role, username]" routerLinkActive="active" type="submit" class="btn btn-success" name="action"
   value="back" style="margin-left: 10px;">BACK</button>
+
+  </ng-container>
+
+  <ng-container *ngIf="role === 'STUDENT'">
+
+    <button [routerLink]="[ '/menu', student.username ]" routerLinkActive="active" type="submit" class="btn btn-success" name="action"
+      value="back" style="margin-left: 10px;">BACK</button>
+
+      </ng-container>
+
+
 
 <ng-container *ngIf="flag">
   <table>
@@ -34,6 +47,9 @@
             </tbody>
            Average: {{avgValue}}
           </table>
+
+
+        <ng-container *ngIf=" role === 'TEACHER'">
 <div>
           <form class="submit-form">
             <label for="point">POINT</label>
@@ -57,7 +73,7 @@
           </div>
 
 
-
+        </ng-container>
 
         </ng-container>
 

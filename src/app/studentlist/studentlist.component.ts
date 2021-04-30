@@ -3,6 +3,7 @@ import { StudentdetailsComponent } from './../studentdetails/studentdetails.comp
 import { StudentService } from './../services/student.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Student } from '../models/student';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-studentlist',
@@ -11,12 +12,15 @@ import { Student } from '../models/student';
 })
 export class StudentlistComponent implements OnInit {
 
-  constructor(private studentService: StudentService, private authService: AuthenticationService) { }
+  constructor(private route: ActivatedRoute, private studentService: StudentService, private authService: AuthenticationService) { }
 
   students: Array<Student> = [];
 
   student: Student = new Student;
 
+  username = this.route.snapshot.paramMap.get('username');
+
+  role = this.route.snapshot.paramMap.get('role')
 
   showStudents(): void {
     this.studentService.getAll()

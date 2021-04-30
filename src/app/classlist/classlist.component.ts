@@ -1,6 +1,8 @@
+import { AppComponent } from './../app.component';
 import { ClassService } from './../services/class.service';
 import { Component, OnInit } from '@angular/core';
 import { Class } from '../models/class';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-classlist',
@@ -9,10 +11,11 @@ import { Class } from '../models/class';
 })
 export class ClasslistComponent implements OnInit {
 
-  constructor(private classService: ClassService) { }
+  constructor( private route: ActivatedRoute, private router: Router, private classService: ClassService) { }
 
   classes: Array<Class> = [];
 
+  username = this.route.snapshot.paramMap.get('username');
 
   showClasses(): void {
     this.classService.getAll()

@@ -1,5 +1,5 @@
 import { AuthenticationService } from './login/authentication.service';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, Injectable, OnInit } from '@angular/core';
 import { User } from './models/user';
 import { Router } from '@angular/router';
 
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+@Injectable()
 export class AppComponent implements OnInit{
 
 

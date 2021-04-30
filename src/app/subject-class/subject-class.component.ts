@@ -1,3 +1,4 @@
+import { AppComponent } from './../app.component';
 import { Subject } from './../models/subject';
 import { Component, OnInit } from '@angular/core';
 import { ClassService } from '../services/class.service';
@@ -17,10 +18,13 @@ export class SubjectClassComponent implements OnInit {
   classId: any = this.route.snapshot.paramMap.get('id');
 
 
-  constructor(private classService: ClassService, private route: ActivatedRoute,) { }
+  constructor(private aC:AppComponent, private classService: ClassService, private route: ActivatedRoute,) { }
+
+username!: string;
 
   ngOnInit(): void {
     this.showSubjects(this.route.snapshot.paramMap.get('id'));
+    this.username = this.aC.username;
   }
 
   showSubjects(id:any): void {

@@ -1,3 +1,4 @@
+import { AppComponent } from './../app.component';
 import { Grades } from './../models/grades';
 import { Subject } from './../models/subject';
 import { ClassService } from './../services/class.service';
@@ -12,7 +13,10 @@ import { Class } from '../models/class';
 })
 export class AddSubjectToClassComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private classService: ClassService) { }
+  constructor(private aC:AppComponent, private route: ActivatedRoute, private classService: ClassService) { }
+
+  username!:string;
+
 
 
   classId: any = this.route.snapshot.paramMap.get('classId');
@@ -22,6 +26,7 @@ export class AddSubjectToClassComponent implements OnInit {
 
   grade!: Grades;
   ngOnInit(): void {
+    this.username = this.aC.username;
   }
 
   saveTutorial(): void {

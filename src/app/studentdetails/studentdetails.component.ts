@@ -34,7 +34,9 @@ points2: Array<Point> = [];
 
 point:Point = new Point;
 
+username = this.route.snapshot.paramMap.get('username')
 
+role = this.route.snapshot.paramMap.get('role')
 
 
   showSubjects(id:any): void {

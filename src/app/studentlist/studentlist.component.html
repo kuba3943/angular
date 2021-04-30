@@ -15,7 +15,7 @@
 
 
 
-              <button [routerLink]="[ '/studentDetails', student.id ]" routerLinkActive="active" type="submit"
+              <button [routerLink]="[ '/studentDetails', student.id, role, username ]" routerLinkActive="active" type="submit"
               class="btn btn-warning" name="action" value="back" style="margin-left: 10px; margin-bottom: 10px;">DETAILS</button>
 
               <button (click)="deleteStudent(student)"  type="submit"
@@ -30,5 +30,5 @@
 <button [routerLink]="[ '/add']" routerLinkActive="active" type="submit"
               class="btn btn-success" name="action" value="back" style="margin-left: 10px; margin-bottom: 10px;">ADD STUDENT</button>
 
-<button [routerLink]="[ '/menu' ]" routerLinkActive="active" type="submit"
+<button [routerLink]="[ '/menu', username ]" routerLinkActive="active" type="submit"
               class="btn btn-primary" name="action" value="back" style="margin-left: 10px; margin-bottom: 10px;">BACK</button>

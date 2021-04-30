@@ -18,7 +18,7 @@
 
           </form>
 
-            <button (click)="addToClass(classId, student.id)"  [routerLink]="[ '/classes']" routerLinkActive="active"   type="submit" class="btn btn-warning"
+            <button (click)="addToClass(classId, student.id)"  [routerLink]="[ '/classes', username]" routerLinkActive="active"   type="submit" class="btn btn-warning"
               name="action" value="back" style="margin-left: 10px; ">ADD</button>
           </div>
 

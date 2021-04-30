@@ -1,3 +1,4 @@
+import { AppComponent } from './../app.component';
 import { ClassService } from './../services/class.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../login/authentication.service';
@@ -13,8 +14,9 @@ import { Class } from '../models/class';
 })
 export class AddStudentToClassComponent implements OnInit {
 
-  constructor(private studentService: StudentService, private route: ActivatedRoute, private authService: AuthenticationService, private classService: ClassService) { }
+  constructor(private aC: AppComponent, private studentService: StudentService, private route: ActivatedRoute, private authService: AuthenticationService, private classService: ClassService) { }
 
+  username!:string;
   students: Array<Student> = [];
 
   student: Student = new Student;
@@ -39,6 +41,7 @@ export class AddStudentToClassComponent implements OnInit {
   ngOnInit(): void {
     this.showStudents();
     this.getClass(this.route.snapshot.paramMap.get('classId'))
+    this.username = this.aC.username;
   }
 
   addToClass(classId: any, studentId: any){

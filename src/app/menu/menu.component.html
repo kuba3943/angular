@@ -1,5 +1,29 @@
 
 
+  <ng-container *ngIf=" role === 'TEACHER'">
+
+    <a [routerLink]="[ '/student', role, username]" routerLinkActive="active">
+      <button type="submit" class="btn btn-success" name="action" value="back" style="margin-left: 10px;">STUDENTS</button></a>
+
+
+     <a [routerLink]="[ '/classes', username ]" routerLinkActive="active">
+      <button type="submit" class="btn btn-warning" name="action" value="back" style="margin-left: 10px;">CLASSES</button>
+    </a>
+
+
+  </ng-container>
+
+  <ng-container *ngIf=" role === 'STUDENT'">
+
+
+  <button [routerLink]="[ '/studentDetails', student.id, role, username ]" routerLinkActive="active" type="submit"
+  class="btn btn-warning" name="action" value="back" style="margin-left: 10px; margin-bottom: 10px;">DETAILS</button>
+
+
+</ng-container>
+
+<!--
+  {{role}}
 
  <a [routerLink]="[ '/student' ]" routerLinkActive="active">
   <button type="submit" class="btn btn-success" name="action" value="back" style="margin-left: 10px;">STUDENTS</button></a>
@@ -8,4 +32,4 @@
  <a [routerLink]="[ '/classes' ]" routerLinkActive="active">
   <button type="submit" class="btn btn-warning" name="action" value="back" style="margin-left: 10px;">CLASSES</button>
 </a>
-
+ -->

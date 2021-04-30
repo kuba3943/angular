@@ -1,3 +1,4 @@
+import { AppComponent } from './../app.component';
 import { StudentService } from './../services/student.service';
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../models/student';
@@ -9,9 +10,16 @@ import { Student } from '../models/student';
 })
 export class AddStudentComponent implements OnInit {
 
-  constructor(private studentService: StudentService) { }
+  constructor(private aC:AppComponent, private studentService: StudentService) { }
+
+
+  username!:string;
+
+
+
 
   ngOnInit(): void {
+    this.username = this.aC.username;
   }
 
 student: Student = new Student;
